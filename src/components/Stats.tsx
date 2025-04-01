@@ -1,23 +1,18 @@
 import Avatar from "./Avatar.tsx";
 import { useContext } from "react";
 import { TwitterContext } from "../utils/context.ts";
-import {TwitterContextType} from "../utils/types";
-
-
 
 const Stats = () => {
-    const context = useContext(TwitterContext) as TwitterContextType;
-
-    if (!context) {
-        throw new Error("Stats must be used within a TwitterContext.Provider");
-    }
-
-    const { user, stats, changeStats } = context;
+    const {
+        user,
+        stats,
+        changeStats
+    } = useContext(TwitterContext);
 
     return (
         <div className={`user-stats`}>
             <div>
-                <Avatar />
+                <Avatar/>
                 {user.name}
             </div>
 
